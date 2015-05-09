@@ -1,0 +1,12 @@
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\bin\Debug\SlotsGame.exe.config
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\bin\Debug\SlotsGame.exe
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\bin\Debug\SlotsGame.pdb
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.csprojResolveAssemblyReference.cache
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.MainMenu.resources
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.Properties.Resources.resources
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.csproj.GenerateResource.Cache
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.exe
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.pdb
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.Game.resources
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.BuyCredits.resources
+D:\OneDrive\Documents\Стефан ФИНКИ ЧЕТВРТ СЕМЕСТАР\Визуелно Програмирање\Проект\SlotsGame\SlotsGame\obj\Debug\SlotsGame.HelpAndWinInfo.resources
