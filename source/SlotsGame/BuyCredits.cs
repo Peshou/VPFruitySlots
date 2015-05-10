@@ -20,11 +20,7 @@ namespace SlotsGame
             Result = 0;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Close();
-        }
+      
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
@@ -90,9 +86,6 @@ namespace SlotsGame
                 }
             }
         }
-        private void btnProceed_Validating(object sender, CancelEventArgs e)
-        {
 
-        }
     }
 }

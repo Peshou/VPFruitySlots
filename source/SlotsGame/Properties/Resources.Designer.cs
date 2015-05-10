@@ -83,16 +83,6 @@ namespace SlotsGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap game_background_single {
-            get {
-                object obj = ResourceManager.GetObject("game-background-single", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Grape {
             get {
                 object obj = ResourceManager.GetObject("Grape", resourceCulture);
@@ -146,16 +136,6 @@ namespace SlotsGame.Properties {
         internal static System.Drawing.Bitmap nmSeven {
             get {
                 object obj = ResourceManager.GetObject("nmSeven", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PlayScreen {
-            get {
-                object obj = ResourceManager.GetObject("PlayScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

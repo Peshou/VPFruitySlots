@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,6 +35,7 @@ namespace SlotsGame
         {
             InitializeComponent();
             imageList = new List<Image>();
+
             imageList.Add(Properties.Resources.Banana);
             imageList.Add(Properties.Resources.Cresha);
             imageList.Add(Properties.Resources.Grape);
@@ -43,7 +45,7 @@ namespace SlotsGame
             imageList.Add(Properties.Resources.Portokal);
             imageList.Add(Properties.Resources.nmSeven);
             imageList.Add(Properties.Resources.Sliva);
-            
+
             threes = new int[] { 3, 4, 7, 7, 3, 2, 8, 10, 6 };
             fours = new int[] { 6, 6, 11, 15, 5, 5, 12, 20, 10 };
             fives = new int[] { 9, 8, 16, 19, 7, 12, 16, 30, 11 };
@@ -61,7 +63,19 @@ namespace SlotsGame
             waitBetweenSpinTiming = 0;
             this.DoubleBuffered = true;
         }
+        private void Game_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnSpin, "Click here to SPIN!");
+            toolTip1.SetToolTip(btnAutoPlay, "Click here for AUTOPLAY!");
+            toolTip1.SetToolTip(nudAutoPlay, "Adjust the number of times to Autoplay!");
+            toolTip1.SetToolTip(nudYourBet, "Adjust your bet!");
+            toolTip1.SetToolTip(nudLines, "Adjust the number of lines to play");
+            toolTip1.SetToolTip(btnMaxRaise, "Click here to bet all your balance!");
+            toolTip1.SetToolTip(btnMaxLines, "Click here to play the maximum number of lines!");
+            toolTip1.SetToolTip(btnEnd, "Quit the game!");
+            toolTip1.SetToolTip(btnHelpAndPayout, "View the payout table and the rules!");
 
+        }
         private void btnHelpAndPayout_Click(object sender, EventArgs e)
         {
             HelpAndWinInfo h = new HelpAndWinInfo();
@@ -147,7 +161,7 @@ namespace SlotsGame
                 spinTimer.Enabled = true;
                 handleTimer.Enabled = true;
                 btnSpin.Enabled = false;
-                
+
             }
             else
             {
@@ -157,45 +171,20 @@ namespace SlotsGame
                 nudYourBet.Value = 1;
             }
         }
-        private void check()
-        {
-            float f = checkBalance(tbBalance.Text);
-            while (true)
-            {
-                if (f < (float)nudLines.Value)
-                {
-                    // POTENCIALEN FATAL EXCEPTION
-                        if(f>(int)nudLines.Minimum){
-                            nudLines.Value = (int)f;
-                        }
-                        else
-                        {
-                            if(nudLines.Value >1)
-                            nudLines.Value--;
-                        }
-                }
-                else
-                {
 
-                    nudYourBet.Value = (decimal)f;
-                    break;
-
-                }
-            }
-            
-        }
-      
         /*
          * Metod za maksimalen bet
         */
         private void btnMaxBet_Click(object sender, EventArgs e)
         {
+
             float f = checkBalance(tbBalance.Text);
+            //    nudYourBet.Maximum = (decimal)f;
             nudYourBet.Value = (decimal)f;
-           
+
         }
-      
-        
+
+
         private void spinTimer_Tick(object sender, EventArgs e)
         {
 
@@ -229,7 +218,6 @@ namespace SlotsGame
                 }
                 else
                 {
-
                     //go resetiram tajmerot
                     spinTiming = 0;
                     spinTimer.Enabled = false;
@@ -243,15 +231,12 @@ namespace SlotsGame
             {
                 if (spinTiming <= 20)
                 {
-
                     //prvo so randomNumber generator zemam 15 brojki koi kje bidat slikite od Listata so sliki
                     for (int i = 0; i < 15; i++)
                     {
                         int randomNumber = random.Next(0, 9);
                         randomNumbers[i] = randomNumber;
                     }
-
-
                     //posle toa gi postatvuvam slikite so nivnite indeksi od Listata spored random brojkite
                     pb1.Image = imageList[randomNumbers[0]];
                     pb2.Image = imageList[randomNumbers[1]];
@@ -269,14 +254,11 @@ namespace SlotsGame
                     pb14.Image = imageList[randomNumbers[13]];
                     pb15.Image = imageList[randomNumbers[14]];
                     spinTiming++;
-                    
                 }
                 else
                 {
-
                     if (numTimes == 1)
                     {
-
                         //go resetiram tajmerot
                         nudAutoPlay.Value = 1;
                         spinTiming = 0;
@@ -289,15 +271,12 @@ namespace SlotsGame
                     }
                     else
                     {
-
                         CalculateWin(whatYouBet, (int)nudLines.Value, randomNumbers);
                         numTimes--;
                         nudAutoPlay.Value--;
                         spinTiming = 0;
                         spinTimer.Enabled = false;
                         waitBetweenSpinTimer.Enabled = true;
-                     
-
                     }
                 }
             }
@@ -328,19 +307,19 @@ namespace SlotsGame
             myPen = new Pen(Color.Red);
             myPen.Width = 6;
             Graphics formGraphics = this.CreateGraphics();
-         //   formGraphics.DrawRectangle(myPen, 100, 67, 100, 107);
+            //   formGraphics.DrawRectangle(myPen, 100, 67, 100, 107);
 
 
             float win = 0;
-       
+
             while (lines > 0)
             {
-               if (lines == 1)
+                if (lines == 1)
                 {
                     myPen.Color = Color.DarkRed;
                     if ((_randomNumbers[5] == _randomNumbers[6]) && (_randomNumbers[5] == _randomNumbers[7]))
                     {
-                  
+
                         Graphics graphics1 = pb6.CreateGraphics();
                         Graphics graphics2 = pb7.CreateGraphics();
                         Graphics graphics3 = pb8.CreateGraphics();
@@ -360,10 +339,10 @@ namespace SlotsGame
                         formGraphics.DrawLine(myPen, new Point(500, 238), new Point(600, 238));
                         if (_randomNumbers[5] == _randomNumbers[8])
                         {
-                           
+
                             if (_randomNumbers[5] == _randomNumbers[9])
                             {
-                                
+
                                 win += _whatYouBet * fives[_randomNumbers[5]];
                             }
                             else
@@ -381,7 +360,7 @@ namespace SlotsGame
                 else if (lines == 2)
                 {
                     myPen.Color = Color.Navy;
-                  
+
                     if ((_randomNumbers[0] == _randomNumbers[1]) && (_randomNumbers[0] == _randomNumbers[2]))
                     {
                         Graphics graphics1 = pb1.CreateGraphics();
@@ -404,10 +383,10 @@ namespace SlotsGame
                         formGraphics.DrawLine(myPen, new Point(500, 120), new Point(600, 120));
                         if (_randomNumbers[0] == _randomNumbers[3])
                         {
-                    
+
                             if (_randomNumbers[0] == _randomNumbers[4])
                             {
-                      
+
                                 win += _whatYouBet * fives[_randomNumbers[0]];
                             }
                             else
@@ -446,10 +425,10 @@ namespace SlotsGame
                         formGraphics.DrawLine(myPen, new Point(500, 358), new Point(600, 358));
                         if (_randomNumbers[10] == _randomNumbers[13])
                         {
-             
+
                             if (_randomNumbers[10] == _randomNumbers[14])
                             {
-                         
+
                                 win += _whatYouBet * fives[_randomNumbers[10]];
                             }
                             else
@@ -464,8 +443,8 @@ namespace SlotsGame
                     }
                 }
                 else if (lines == 4)
-               {
-                   myPen.Color = Color.DarkGreen;
+                {
+                    myPen.Color = Color.DarkGreen;
 
                     if ((_randomNumbers[0] == _randomNumbers[6]) && (_randomNumbers[0] == _randomNumbers[12]))
                     {
@@ -490,14 +469,14 @@ namespace SlotsGame
                         graphics5.DrawLine(myPen, 0, 100, 50, 50);
                         graphics5.DrawLine(myPen, 50, 50, 100, 50);
                         graphics5.Dispose();
-                     
+
                         if (_randomNumbers[0] == _randomNumbers[8])
                         {
-                            
-                  
+
+
                             if (_randomNumbers[0] == _randomNumbers[4])
                             {
-                              
+
 
                                 win += _whatYouBet * fives[_randomNumbers[0]];
                             }
@@ -515,7 +494,7 @@ namespace SlotsGame
                 else if (lines == 5)
                 {
                     myPen.Color = Color.MediumBlue;
-                  
+
                     if ((_randomNumbers[10] == _randomNumbers[6]) && (_randomNumbers[10] == _randomNumbers[2]))
                     {
                         Graphics graphics1 = pb11.CreateGraphics();
@@ -538,7 +517,7 @@ namespace SlotsGame
                         graphics5.DrawLine(myPen, 0, 0, 50, 50);
                         graphics5.DrawLine(myPen, 50, 50, 100, 50);
                         graphics5.Dispose();
-                       
+
                         if (_randomNumbers[10] == _randomNumbers[8])
                         {
                             if (_randomNumbers[10] == _randomNumbers[14])
@@ -599,11 +578,11 @@ namespace SlotsGame
                     }
                 }
                 else if (lines == 7)
-               {
-                   myPen.Color = Color.Lime;
-                   
+                {
+                    myPen.Color = Color.Lime;
 
-                   if ((_randomNumbers[5] == _randomNumbers[11]) && (_randomNumbers[5] == _randomNumbers[12]))
+
+                    if ((_randomNumbers[5] == _randomNumbers[11]) && (_randomNumbers[5] == _randomNumbers[12]))
                     {
                         Graphics graphics1 = pb6.CreateGraphics();
                         Graphics graphics2 = pb12.CreateGraphics();
@@ -645,7 +624,7 @@ namespace SlotsGame
                 else if (lines == 8)
                 {
                     myPen.Color = Color.Olive;
-                  
+
                     if (_randomNumbers[0] == _randomNumbers[1] && _randomNumbers[0] == _randomNumbers[7])
                     {
                         Graphics graphics1 = pb1.CreateGraphics();
@@ -685,7 +664,7 @@ namespace SlotsGame
                 else if (lines == 9)
                 {
                     myPen.Color = Color.Aqua;
-                   
+
                     if (_randomNumbers[10] == _randomNumbers[11] && _randomNumbers[10] == _randomNumbers[7])
                     {
                         Graphics graphics1 = pb11.CreateGraphics();
@@ -725,7 +704,7 @@ namespace SlotsGame
                 else if (lines == 10)
                 {
                     myPen.Color = Color.Magenta;
-                  
+
                     if (_randomNumbers[5] == _randomNumbers[11] && _randomNumbers[5] == _randomNumbers[7])
                     {
                         Graphics graphics1 = pb6.CreateGraphics();
@@ -767,7 +746,7 @@ namespace SlotsGame
                 else if (lines == 11)
                 {
                     myPen.Color = Color.SaddleBrown;
-                   
+
                     if (_randomNumbers[5] == _randomNumbers[1] && _randomNumbers[5] == _randomNumbers[7])
                     {
                         Graphics graphics1 = pb6.CreateGraphics();
@@ -809,7 +788,7 @@ namespace SlotsGame
                 else if (lines == 12)
                 {
                     myPen.Color = Color.SpringGreen;
-                   
+
                     if (_randomNumbers[0] == _randomNumbers[6] && _randomNumbers[0] == _randomNumbers[7])
                     {
                         Graphics graphics1 = pb1.CreateGraphics();
@@ -890,10 +869,10 @@ namespace SlotsGame
                     }
                 }
                 else if (lines == 14)
-               {
-                   myPen.Color = Color.Gold;
-                  
-                   if (_randomNumbers[0] == _randomNumbers[6] && _randomNumbers[0] == _randomNumbers[2])
+                {
+                    myPen.Color = Color.Gold;
+
+                    if (_randomNumbers[0] == _randomNumbers[6] && _randomNumbers[0] == _randomNumbers[2])
                     {
                         Graphics graphics1 = pb1.CreateGraphics();
                         Graphics graphics2 = pb7.CreateGraphics();
@@ -972,12 +951,12 @@ namespace SlotsGame
                         else
                         {
                             win += _whatYouBet * threes[_randomNumbers[10]];
-                          
+
                         }
                     }
                 }
                 lines--;
-              
+
             }
 
             myPen.Dispose();
@@ -985,7 +964,7 @@ namespace SlotsGame
 
             float balance = checkBalance(tbBalance.Text);
             balance += win;
-            tbWin.Text= win.ToString();
+            tbWin.Text = win.ToString();
             tbBalance.Text = balance.ToString();
         }
 
@@ -1023,7 +1002,6 @@ namespace SlotsGame
             }
             else
             {
-
                 numTimes = (int)nudAutoPlay.Value;
                 if ((numTimes * (float)nudYourBet.Value) > checkBalance(tbBalance.Text))
                 {
@@ -1033,7 +1011,6 @@ namespace SlotsGame
                 whatYouBet = (float)nudYourBet.Value;
                 if (numTimes > 0)
                 {
-                 
                     changeButtonAutoPlay(true);
                     btnSpin.Enabled = false;
                     isAutoPlaying = true;
@@ -1147,8 +1124,6 @@ namespace SlotsGame
                 tbBalance.Text = balance.ToString();
                 if (checkBalance(tbBalance.Text) > 0)
                 {
-                    nudYourBet.Maximum = (decimal)balance;
-                    nudYourBet.Minimum = nudLines.Value;
                     nudYourBet.Value = nudLines.Value;
                 }
             }
@@ -1165,8 +1140,6 @@ namespace SlotsGame
         */
         private void CalculateNudYourBet()
         {
-
-
             if (linesCounter > (int)nudLines.Value)
             {
 
@@ -1176,15 +1149,11 @@ namespace SlotsGame
                 thisIncrement /= linesCounter;
                 thisBet *= (int)nudLines.Value;
                 thisIncrement *= (int)nudLines.Value;
-                if (thisBet > checkBalance(tbBalance.Text))
-                {
-                    //check();
-                    nudYourBet.Maximum = (decimal)checkBalance(tbBalance.Text);
-                }
+                if(thisBet>=1)
+                nudYourBet.Value = (decimal)thisBet;
                 else
                 {
-                    nudYourBet.Value = (decimal)thisBet;
-                    nudYourBet.Minimum = (int)nudLines.Value;
+                    nudYourBet.Value = 1;
                 }
                 nudYourBet.Increment = (decimal)thisIncrement;
                 linesCounter = (int)nudLines.Value;
@@ -1200,7 +1169,6 @@ namespace SlotsGame
                 if (thisBet > checkBalance(tbBalance.Text))
                 {
                     nudYourBet.Value = (decimal)checkBalance(tbBalance.Text);
-                    nudYourBet.Maximum = (decimal)checkBalance(tbBalance.Text);
                 }
                 else
                 {
@@ -1231,7 +1199,6 @@ namespace SlotsGame
             }
             else
             {
-                nudYourBet.Maximum = (decimal)checkBalance(tbBalance.Text);
                 if (nudYourBet.Value > (decimal)checkBalance(tbBalance.Text))
                 {
                     btnAutoPlay.Enabled = false;
@@ -1265,19 +1232,7 @@ namespace SlotsGame
             }
         }
 
-        private void Game_Load(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(btnSpin, "Click here to SPIN!");
-            toolTip1.SetToolTip(btnAutoPlay, "Click here for AUTOPLAY!");
-            toolTip1.SetToolTip(nudAutoPlay, "Adjust the number of times to Autoplay!");
-            toolTip1.SetToolTip(nudYourBet, "Adjust your bet!");
-            toolTip1.SetToolTip(nudLines, "Adjust the number of lines to play");
-            toolTip1.SetToolTip(btnMaxRaise, "Click here to bet all your balance!");
-            toolTip1.SetToolTip(btnMaxLines, "Click here to play the maximum number of lines!");
-            toolTip1.SetToolTip(btnEnd, "Quit the game!");
-            toolTip1.SetToolTip(btnHelpAndPayout, "View the payout table and the rules!");
-            
-        }
+   
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1286,13 +1241,5 @@ namespace SlotsGame
                 btnSpin.PerformClick();
             }
         }
-
-      
-
-        
-
-       
-
-   
     }
 }

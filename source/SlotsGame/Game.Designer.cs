@@ -121,6 +121,7 @@
             // 
             // tbWin
             // 
+            this.tbWin.BackColor = System.Drawing.Color.White;
             this.tbWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbWin.Location = new System.Drawing.Point(305, 10);
             this.tbWin.Name = "tbWin";
@@ -143,6 +144,11 @@
             -1593835521,
             466537709,
             54210,
+            0});
+            this.nudYourBet.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
             0});
             this.nudYourBet.Name = "nudYourBet";
             this.nudYourBet.Size = new System.Drawing.Size(92, 20);

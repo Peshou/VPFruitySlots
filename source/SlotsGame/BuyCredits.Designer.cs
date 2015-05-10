@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyCredits));
             this.label1 = new System.Windows.Forms.Label();
             this.btnProceed = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.tbCredits = new System.Windows.Forms.TextBox();
             this.creditInputErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.creditInputErrorProvider)).BeginInit();
@@ -49,29 +48,17 @@
             // 
             // btnProceed
             // 
-            this.btnProceed.Location = new System.Drawing.Point(62, 100);
+            this.btnProceed.Location = new System.Drawing.Point(103, 97);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(75, 32);
             this.btnProceed.TabIndex = 2;
             this.btnProceed.Text = "Proceed";
             this.btnProceed.UseVisualStyleBackColor = true;
             this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
-            this.btnProceed.Validating += new System.ComponentModel.CancelEventHandler(this.btnProceed_Validating);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(174, 100);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 32);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // tbCredits
             // 
-            this.tbCredits.Location = new System.Drawing.Point(103, 59);
+            this.tbCredits.Location = new System.Drawing.Point(90, 58);
             this.tbCredits.Name = "tbCredits";
             this.tbCredits.Size = new System.Drawing.Size(100, 20);
             this.tbCredits.TabIndex = 1;
@@ -87,9 +74,7 @@
             this.AcceptButton = this.btnProceed;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(316, 141);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.tbCredits);
             this.Controls.Add(this.label1);
@@ -108,7 +93,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnProceed;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox tbCredits;
         private System.Windows.Forms.ErrorProvider creditInputErrorProvider;
     }
