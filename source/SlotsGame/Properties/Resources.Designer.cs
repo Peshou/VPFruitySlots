@@ -71,12 +71,30 @@ namespace SlotsGame.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream btnNUDClick {
+            get {
+                return ResourceManager.GetStream("btnNUDClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Cresha {
             get {
                 object obj = ResourceManager.GetObject("Cresha", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream enterGameSound {
+            get {
+                return ResourceManager.GetStream("enterGameSound", resourceCulture);
             }
         }
         
@@ -181,12 +199,30 @@ namespace SlotsGame.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream spin_sound {
+            get {
+                return ResourceManager.GetStream("spin_sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap startScreen {
             get {
                 object obj = ResourceManager.GetObject("startScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream win_sound {
+            get {
+                return ResourceManager.GetStream("win_sound", resourceCulture);
             }
         }
     }

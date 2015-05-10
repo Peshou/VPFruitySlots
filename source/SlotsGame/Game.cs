@@ -29,13 +29,20 @@ namespace SlotsGame
         private static bool firstTime;
         private static int numTimes;
         private static bool firstSpin;
+        private static SoundPlayer spinSound;
+        private static SoundPlayer enterGame;
+        private static SoundPlayer winSound;
         private static bool boughtCredits;
         private static int linesCounter;
+        private static SoundPlayer nudClickSound;
         public Game()
         {
             InitializeComponent();
             imageList = new List<Image>();
-
+            enterGame = new SoundPlayer(Properties.Resources.enterGameSound);
+            spinSound = new SoundPlayer(Properties.Resources.spin_sound);
+            winSound = new SoundPlayer(Properties.Resources.win_sound);
+            nudClickSound = new SoundPlayer(Properties.Resources.btnNUDClick);
             imageList.Add(Properties.Resources.Banana);
             imageList.Add(Properties.Resources.Cresha);
             imageList.Add(Properties.Resources.Grape);
@@ -45,7 +52,6 @@ namespace SlotsGame
             imageList.Add(Properties.Resources.Portokal);
             imageList.Add(Properties.Resources.nmSeven);
             imageList.Add(Properties.Resources.Sliva);
-
             threes = new int[] { 3, 4, 7, 7, 3, 2, 8, 10, 6 };
             fours = new int[] { 6, 6, 11, 15, 5, 5, 12, 20, 10 };
             fives = new int[] { 9, 8, 16, 19, 7, 12, 16, 30, 11 };
@@ -62,6 +68,7 @@ namespace SlotsGame
             random = new Random();
             waitBetweenSpinTiming = 0;
             this.DoubleBuffered = true;
+            enterGame.Play();
         }
         private void Game_Load(object sender, EventArgs e)
         {
@@ -158,6 +165,7 @@ namespace SlotsGame
                 whatYouBet = bet;
                 balance -= whatYouBet;
                 tbBalance.Text = balance.ToString();
+                spinSound.Play();
                 spinTimer.Enabled = true;
                 handleTimer.Enabled = true;
                 btnSpin.Enabled = false;
@@ -187,7 +195,6 @@ namespace SlotsGame
 
         private void spinTimer_Tick(object sender, EventArgs e)
         {
-
             if (!isAutoPlaying)
             {
                 if (spinTiming <= 20)
@@ -307,7 +314,7 @@ namespace SlotsGame
             myPen = new Pen(Color.Red);
             myPen.Width = 6;
             Graphics formGraphics = this.CreateGraphics();
-            //   formGraphics.DrawRectangle(myPen, 100, 67, 100, 107);
+         
 
 
             float win = 0;
@@ -965,6 +972,8 @@ namespace SlotsGame
             float balance = checkBalance(tbBalance.Text);
             balance += win;
             tbWin.Text = win.ToString();
+            if (win > 0)
+                winSound.Play();
             tbBalance.Text = balance.ToString();
         }
 
@@ -1052,7 +1061,7 @@ namespace SlotsGame
                     tbBalance.Text = "0";
                 }
                 else tbBalance.Text = newBalance.ToString();
-
+                spinSound.Play();
                 spinTimer.Enabled = true;
                 handleTimer.Enabled = true;
                 waitBetweenSpinTiming = 0;
@@ -1070,6 +1079,7 @@ namespace SlotsGame
                     float newBalance = checkBalance(tbBalance.Text);
                     newBalance -= whatYouBet;
                     tbBalance.Text = newBalance.ToString();
+                    spinSound.Play();
                     spinTimer.Enabled = true;
                     handleTimer.Enabled = true;
                     waitBetweenSpinTiming = 0;
@@ -1122,6 +1132,7 @@ namespace SlotsGame
                 float balance = checkBalance(tbBalance.Text);
                 balance += buyForm.Result;
                 tbBalance.Text = balance.ToString();
+                enterGame.Play();
                 if (checkBalance(tbBalance.Text) > 0)
                 {
                     nudYourBet.Value = nudLines.Value;
@@ -1188,6 +1199,7 @@ namespace SlotsGame
 
         private void nudYourBet_ValueChanged(object sender, EventArgs e)
         {
+            nudClickSound.Play();
             if (nudYourBet.Value == (decimal)0)
             {
                 btnAutoPlay.Enabled = false;
@@ -1220,6 +1232,8 @@ namespace SlotsGame
 
         private void nudAutoPlay_ValueChanged(object sender, EventArgs e)
         {
+            if(!isAutoPlaying)
+            nudClickSound.Play();
             if (nudAutoPlay.Value == 0)
             {
                 isAutoPlaying = false;

@@ -153,6 +153,18 @@
   <ItemGroup>
     <None Include="Resources\img\PlayScreen - Copy.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound\spin_sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound\win_sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound\enterGameSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound\btnNUDClick.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
