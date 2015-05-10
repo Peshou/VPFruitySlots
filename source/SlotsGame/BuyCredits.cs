@@ -17,6 +17,7 @@ namespace SlotsGame
         public BuyCredits()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             Result = 0;
         }
 

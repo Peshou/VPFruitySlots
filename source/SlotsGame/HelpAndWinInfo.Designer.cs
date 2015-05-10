@@ -103,6 +103,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.label34);
             this.groupBox1.Controls.Add(this.label31);
             this.groupBox1.Controls.Add(this.label32);
@@ -182,6 +183,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label28);
@@ -587,6 +589,7 @@
             // 
             // pictureBox9
             // 
+            this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Image = global::SlotsGame.Properties.Resources.Lines;
             this.pictureBox9.Location = new System.Drawing.Point(77, 367);
             this.pictureBox9.Name = "pictureBox9";
@@ -600,6 +603,8 @@
             this.AcceptButton = this.btnClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SlotsGame.Properties.Resources.PlayScreen;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(979, 410);
             this.Controls.Add(this.groupBox2);

@@ -70,6 +70,7 @@
             this.pb3 = new System.Windows.Forms.PictureBox();
             this.pb2 = new System.Windows.Forms.PictureBox();
             this.pb1 = new System.Windows.Forms.PictureBox();
+            this.btnMute = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudYourBet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLines)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -557,6 +558,16 @@
             this.pb1.TabIndex = 29;
             this.pb1.TabStop = false;
             // 
+            // btnMute
+            // 
+            this.btnMute.Location = new System.Drawing.Point(653, 2);
+            this.btnMute.Name = "btnMute";
+            this.btnMute.Size = new System.Drawing.Size(86, 34);
+            this.btnMute.TabIndex = 47;
+            this.btnMute.Text = "Mute";
+            this.btnMute.UseVisualStyleBackColor = true;
+            this.btnMute.Click += new System.EventHandler(this.btnMute_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,6 +575,7 @@
             this.BackgroundImage = global::SlotsGame.Properties.Resources.PlayScreen___Copy;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnMute);
             this.Controls.Add(this.labelHello);
             this.Controls.Add(this.tbWin);
             this.Controls.Add(this.groupBox4);
@@ -674,5 +686,6 @@
         private System.Windows.Forms.PictureBox pb2;
         private System.Windows.Forms.PictureBox pb1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnMute;
     }
 }

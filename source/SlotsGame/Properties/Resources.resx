@@ -121,6 +121,15 @@
   <data name="questionMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img\questionMark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="win_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sound\win_sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PlayScreen - Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img\PlayScreen - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enterGameSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sound\enterGameSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Portokal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img\Portokal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,8 +148,14 @@
   <data name="Sliva" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img\Sliva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="spin_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sound\spin_sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Banana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img\Banana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnNUDClick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sound\btnNUDClick.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Lemon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img\Lemon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,19 +169,7 @@
   <data name="Cresha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img\Cresha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PlayScreen - Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\img\PlayScreen - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnNUDClick" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sound\btnNUDClick.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="enterGameSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sound\enterGameSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="spin_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sound\spin_sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="win_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sound\win_sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="PlayScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img\PlayScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

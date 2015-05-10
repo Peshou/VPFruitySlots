@@ -15,6 +15,7 @@ namespace SlotsGame
         public HelpAndWinInfo()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void label24_Click(object sender, EventArgs e)

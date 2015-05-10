@@ -35,6 +35,7 @@ namespace SlotsGame
         private static bool boughtCredits;
         private static int linesCounter;
         private static SoundPlayer nudClickSound;
+        private static bool muted;
         public Game()
         {
             InitializeComponent();
@@ -63,12 +64,14 @@ namespace SlotsGame
             boughtCredits = false;
             timerHandleTick = 0;
             isAutoPlaying = false;
+            muted = false;
             randomNumbers = new int[15];
             numTimes = 0;
             random = new Random();
             waitBetweenSpinTiming = 0;
             this.DoubleBuffered = true;
-            enterGame.Play();
+            if (!muted)
+                enterGame.Play();
         }
         private void Game_Load(object sender, EventArgs e)
         {
@@ -87,6 +90,7 @@ namespace SlotsGame
         {
             HelpAndWinInfo h = new HelpAndWinInfo();
             h.ShowDialog();
+
         }
 
 
@@ -165,6 +169,7 @@ namespace SlotsGame
                 whatYouBet = bet;
                 balance -= whatYouBet;
                 tbBalance.Text = balance.ToString();
+                if(!muted)
                 spinSound.Play();
                 spinTimer.Enabled = true;
                 handleTimer.Enabled = true;
@@ -314,7 +319,7 @@ namespace SlotsGame
             myPen = new Pen(Color.Red);
             myPen.Width = 6;
             Graphics formGraphics = this.CreateGraphics();
-         
+
 
 
             float win = 0;
@@ -972,7 +977,7 @@ namespace SlotsGame
             float balance = checkBalance(tbBalance.Text);
             balance += win;
             tbWin.Text = win.ToString();
-            if (win > 0)
+            if (win > 0 && !muted)
                 winSound.Play();
             tbBalance.Text = balance.ToString();
         }
@@ -1061,6 +1066,7 @@ namespace SlotsGame
                     tbBalance.Text = "0";
                 }
                 else tbBalance.Text = newBalance.ToString();
+                if(!muted)
                 spinSound.Play();
                 spinTimer.Enabled = true;
                 handleTimer.Enabled = true;
@@ -1079,6 +1085,7 @@ namespace SlotsGame
                     float newBalance = checkBalance(tbBalance.Text);
                     newBalance -= whatYouBet;
                     tbBalance.Text = newBalance.ToString();
+                    if(!muted)
                     spinSound.Play();
                     spinTimer.Enabled = true;
                     handleTimer.Enabled = true;
@@ -1132,6 +1139,7 @@ namespace SlotsGame
                 float balance = checkBalance(tbBalance.Text);
                 balance += buyForm.Result;
                 tbBalance.Text = balance.ToString();
+                if(!muted)
                 enterGame.Play();
                 if (checkBalance(tbBalance.Text) > 0)
                 {
@@ -1160,8 +1168,8 @@ namespace SlotsGame
                 thisIncrement /= linesCounter;
                 thisBet *= (int)nudLines.Value;
                 thisIncrement *= (int)nudLines.Value;
-                if(thisBet>=1)
-                nudYourBet.Value = (decimal)thisBet;
+                if (thisBet >= 1)
+                    nudYourBet.Value = (decimal)thisBet;
                 else
                 {
                     nudYourBet.Value = 1;
@@ -1199,7 +1207,8 @@ namespace SlotsGame
 
         private void nudYourBet_ValueChanged(object sender, EventArgs e)
         {
-            nudClickSound.Play();
+            if (!muted)
+                nudClickSound.Play();
             if (nudYourBet.Value == (decimal)0)
             {
                 btnAutoPlay.Enabled = false;
@@ -1232,8 +1241,8 @@ namespace SlotsGame
 
         private void nudAutoPlay_ValueChanged(object sender, EventArgs e)
         {
-            if(!isAutoPlaying)
-            nudClickSound.Play();
+            if (!isAutoPlaying && !muted)
+                nudClickSound.Play();
             if (nudAutoPlay.Value == 0)
             {
                 isAutoPlaying = false;
@@ -1246,13 +1255,27 @@ namespace SlotsGame
             }
         }
 
-   
+
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
+                e.Handled = true;
                 btnSpin.PerformClick();
+            }
+        }
+
+        private void btnMute_Click(object sender, EventArgs e)
+        {
+            if (muted){
+                muted = false;
+                btnMute.Text = "Mute";
+            }
+            else if (!muted)
+            {
+                muted = true;
+                btnMute.Text = "Unmute";
             }
         }
     }

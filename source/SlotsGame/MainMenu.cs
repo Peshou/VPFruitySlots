@@ -15,6 +15,7 @@ namespace SlotsGame
         public MainMenu()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
